@@ -1,0 +1,124 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 603
+  Height = 337
+  Top = 250
+  Width = 577
+  Caption = 'Teste Controle Menu'
+  ClientHeight = 317
+  ClientWidth = 577
+  Menu = MainMenu1
+  OnShow = FormShow
+  LCLVersion = '2.0.8.0'
+  object btnMudaNivel: TButton
+    Left = 429
+    Height = 25
+    Top = 17
+    Width = 75
+    Caption = 'Muda Nivel'
+    OnClick = btnMudaNivelClick
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    left = 80
+    top = 72
+    object MenuItem1: TMenuItem
+      Caption = 'Cadastros'
+      object MenuItem7: TMenuItem
+        Caption = 'Clientes'
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'Fornecedores'
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'Grupo de produto'
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'Produto'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'PDV'
+      object MenuItem11: TMenuItem
+        Caption = 'Abre Caixa'
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'Venda'
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'Sangria'
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'Reforço'
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'Fecha Caixa'
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Rel Vendas Período'
+      end
+      object MenuItem17: TMenuItem
+        Caption = 'Rel Cupom Cancelado'
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'NFe'
+      object MenuItem18: TMenuItem
+        Caption = 'Emite NFe'
+      end
+      object MenuItem19: TMenuItem
+        Caption = 'Rel NFe Emitidas Periodo'
+      end
+      object MenuItem20: TMenuItem
+        Caption = 'Rel NFe Canceladas'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Estoque'
+      object MenuItem21: TMenuItem
+        Caption = 'Entrada de Produto'
+      end
+      object MenuItem22: TMenuItem
+        Caption = 'Acerto de Estoque'
+      end
+      object MenuItem23: TMenuItem
+        Caption = 'Inventario'
+      end
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Usuarios'
+      object MenuItem24: TMenuItem
+        Caption = 'Cadastro Usuario'
+      end
+      object MenuItem25: TMenuItem
+        Caption = 'Permissões'
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Sair'
+    end
+  end
+  object conexao: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Catalog = 'pdv'
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+    )
+    Connected = True
+    Port = 3306
+    Database = 'DRIVER={MySQL ODBC 8.0 Unicode Driver};SERVER=localhost;DATABASE=pdv;USER=root;PASSWORD=Info@3004;OPTION=3;'
+    Protocol = 'ado'
+    left = 450
+    top = 71
+  end
+  object ZQuery1: TZQuery
+    Params = <>
+    left = 397
+    top = 143
+  end
+  object ZUpdateSQL1: TZUpdateSQL
+    UseSequenceFieldForRefreshSQL = False
+    left = 422
+    top = 203
+  end
+end

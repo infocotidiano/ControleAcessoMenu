@@ -1,0 +1,1 @@
+mysqlcheck -u root -p --all-databases --check-upgrade

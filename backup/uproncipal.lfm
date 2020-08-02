@@ -1,0 +1,224 @@
+object form1: Tform1
+  Left = 448
+  Height = 337
+  Top = 203
+  Width = 577
+  Caption = 'Teste Controle Menu'
+  ClientHeight = 316
+  ClientWidth = 577
+  Menu = MainMenu1
+  OnShow = FormShow
+  LCLVersion = '2.0.8.0'
+  object btnMudaNivel: TButton
+    Left = 443
+    Height = 25
+    Top = 12
+    Width = 115
+    Caption = 'Muda NIvel'
+    OnClick = btnMudaNivelClick
+    TabOrder = 0
+  end
+  object btnNIVEL: TButton
+    Left = 447
+    Height = 25
+    Top = 47
+    Width = 111
+    Caption = 'Nivel'
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    left = 80
+    top = 72
+    object MenuItem1: TMenuItem
+      Caption = 'Cadastros'
+      object MenuItem7: TMenuItem
+        Caption = 'Clientes'
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'Fornecedores'
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'Grupo de produto'
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'Produto'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'PDV'
+      object MenuItem11: TMenuItem
+        Caption = 'Abre Caixa'
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'Venda'
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'Sangria'
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'Reforço'
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'Fecha Caixa'
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Rel Vendas Período'
+      end
+      object MenuItem17: TMenuItem
+        Caption = 'Rel Cupom Cancelado'
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'NFe'
+      object MenuItem18: TMenuItem
+        Caption = 'Emite NFe'
+      end
+      object MenuItem19: TMenuItem
+        Caption = 'Rel NFe Emitidas Periodo'
+      end
+      object MenuItem20: TMenuItem
+        Caption = 'Rel NFe Canceladas'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Estoque'
+      object MenuItem21: TMenuItem
+        Caption = 'Entrada de Produto'
+      end
+      object MenuItem22: TMenuItem
+        Caption = 'Acerto de Estoque'
+      end
+      object MenuItem23: TMenuItem
+        Caption = 'Inventario'
+      end
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Usuarios'
+      object MenuItem24: TMenuItem
+        Caption = 'Cadastro Usuario'
+      end
+      object MenuItem25: TMenuItem
+        Caption = 'Permissões'
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Sair'
+    end
+  end
+  object conexao: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 3306
+    Database = 'pdv'
+    User = 'root'
+    Password = 'Info@3004'
+    Protocol = 'mysql-5'
+    left = 464
+    top = 104
+  end
+  object zquery1: TZQuery
+    Connection = conexao
+    UpdateObject = zupdate1
+    SQL.Strings = (
+      'select * from crt_menu'
+      'order by indice'
+    )
+    Params = <>
+    left = 352
+    top = 112
+    object zquery1nome: TStringField
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+    object zquery1descricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 600
+    end
+    object zquery1nivel: TLongintField
+      FieldKind = fkData
+      FieldName = 'nivel'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zquery1indice: TLongintField
+      FieldKind = fkData
+      FieldName = 'indice'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object zupdate1: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM crt_menu'
+      'WHERE'
+      '  crt_menu.nome = :OLD_nome'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO crt_menu'
+      '  (nome, descricao, nivel, indice)'
+      'VALUES'
+      '  (:nome, :descricao, :nivel, :indice)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE crt_menu SET'
+      '  nome = :nome,'
+      '  descricao = :descricao,'
+      '  nivel = :nivel,'
+      '  indice = :indice'
+      'WHERE'
+      '  crt_menu.nome = :OLD_nome'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    left = 352
+    top = 184
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'descricao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nivel'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'indice'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_nome'
+        ParamType = ptUnknown
+      end>
+  end
+end

@@ -1,0 +1,129 @@
+object frmUsuario: TfrmUsuario
+  Left = 426
+  Height = 259
+  Top = 221
+  Width = 426
+  Caption = 'cadastro de usuario'
+  ClientHeight = 259
+  ClientWidth = 426
+  LCLVersion = '2.0.8.0'
+  object DBEdit1: TDBEdit
+    Left = 89
+    Height = 27
+    Top = 33
+    Width = 80
+    DataField = 'codigo'
+    DataSource = dsUsuario
+    Alignment = taRightJustify
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 90
+    Height = 27
+    Top = 74
+    Width = 271
+    DataField = 'nome'
+    DataSource = dsUsuario
+    CharCase = ecNormal
+    MaxLength = 80
+    TabOrder = 1
+  end
+  object DBEdit3: TDBEdit
+    Left = 89
+    Height = 27
+    Top = 114
+    Width = 207
+    DataField = 'senha'
+    DataSource = dsUsuario
+    CharCase = ecNormal
+    MaxLength = 60
+    TabOrder = 2
+  end
+  object DBComboBox1: TDBComboBox
+    Left = 88
+    Height = 25
+    Top = 152
+    Width = 100
+    DataField = 'nivel'
+    DataSource = dsUsuario
+    ItemHeight = 0
+    Items.Strings = (
+      '1'
+      '2'
+      '3'
+      '4'
+      '5'
+      '6'
+      '7'
+      '8'
+      '9'
+    )
+    MaxLength = 0
+    Style = csDropDownList
+    TabOrder = 3
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 80
+    Height = 25
+    Top = 205
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = dsUsuario
+    Options = []
+    TabOrder = 4
+  end
+  object Label1: TLabel
+    Left = 40
+    Height = 17
+    Top = 40
+    Width = 39
+    Caption = 'Codigo'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 40
+    Height = 17
+    Top = 84
+    Width = 34
+    Caption = 'Nome'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 40
+    Height = 17
+    Top = 124
+    Width = 35
+    Caption = 'Senha'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 40
+    Height = 17
+    Top = 160
+    Width = 26
+    Caption = 'nivel'
+    ParentColor = False
+  end
+  object tbUsuario: TZTable
+    Connection = frmPrincipal.conexao
+    Active = True
+    TableName = 'ctrl_usuario'
+    left = 352
+    top = 16
+  end
+  object dsUsuario: TDataSource
+    DataSet = tbUsuario
+    left = 312
+    top = 188
+  end
+end
