@@ -152,9 +152,9 @@ begin
       for nITEM := 0 to MainMenu1.Items[nPRINCIPAL].Count-1 do
         begin
            if nNIVEL >= RetornaNIVEL(MainMenu1.Items[nPRINCIPAL].Items[nITEM].Name) then
-              MainMenu1.Items[nPRINCIPAL].Items[nITEM].Visible:=true
+              MainMenu1.Items[nPRINCIPAL].Items[nITEM].Enabled:=true
            else
-              MainMenu1.Items[nPRINCIPAL].Items[nITEM].Visible:=false;
+              MainMenu1.Items[nPRINCIPAL].Items[nITEM].Enabled:=false;
         end;
     end;
 
